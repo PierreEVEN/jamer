@@ -1,0 +1,4 @@
+bin/
+temp/
+build/
+third_party/asiosdk
