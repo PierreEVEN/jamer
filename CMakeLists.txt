@@ -36,13 +36,15 @@ target_include_directories(asiosdk PUBLIC ./third_party/asiosdk/host)
 target_include_directories(asiosdk PUBLIC ./third_party/asiosdk/common)
 construct_target(asiosdk ./third_party/asiosdk/common ${SOURCES})
 
-
+# cpputils
 
 # main lib
 file(GLOB_RECURSE SOURCES ./src/jamerlib/*)
 add_library(jamerlib ${SOURCES})
 construct_target(jamerlib ./src/jamerlib/public ${SOURCES})
 target_link_libraries(jamerlib asiosdk)
+target_include_directories(jamerlib PUBLIC ${PROJECT_ROOT}/third_party/CppUtils/include)
+target_link_libraries(jamerlib ${PROJECT_ROOT}/temp/third_party/debug/cpputils.lib)
 
 # ui
 file(GLOB_RECURSE SOURCES ./src/jamerui/*)
